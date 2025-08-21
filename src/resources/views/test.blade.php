@@ -5,133 +5,235 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Form</title>
+  <title>Contact Page</title>
  
-  <link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
+  <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
 </head>
 
 <body>
-    <header class="header">
+    
+
+<header class="header">
         <div class="header__top">
             <h2>FashionablyLate</h2>
-            <form class="form" action="/logout" method="post">
-     @csrf
-<button class="header-nav__button">ログアウト</button>
-</form>
         </div>
-    </header>
+</header>
 
-    <main>
+<main>
+
+    <div class="contact-form__content">
       <div class="contact-form__heading">
-        <h3 class="h3heading">Admin</h3>
+        <h3>Contact</h3>
       </div>
-<div class="search_form"> 
-<form class="form" action="/admin/search" method="get">
-  @csrf
-<div class="search-form__item">
-<!-- <input class="search-form__item-input" type="text" /> -->
-<input class="search-form__item-input" type="text" name="keyword" value="{{ old('keyword') }}">
 
-
-
-     <select class="create-form__item-select" name="gender_number">
-    <option value="" selected>性別</option>
-    <option value="1">男性</option>
-    <option value="2">女性</option>
-    <option value="3">その他</option>
-</select>
-
-
-
-
-
-
-     <!-- <select class="create-form__item-select" name="category_id">
-      <option value="" selected>お問い合わせ種類</option>
-@foreach ($categories as $category)
-                 <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
-             @endforeach
-</select> -->
-<select class="create-form__item-select" name="category_id">
-    <option value="" selected>お問い合わせ種類</option>
-    @foreach ($categories as $category)
-        <option value="{{ $category->id }}">{{ $category->content }}</option>
-    @endforeach
-</select>
-
-
-
-</div>
-
-              <button class="button-submit" type="submit">
-                検索
-              </button>
-            
-</form>
-<div class="reset_form_button"> 
-<form class="form" action="/admin/reset" method="get">
-<button class="button-submit2" type="submit">
-                リセット
-              </button>
-            </div>
-            {{ $contacts->links() }}
-</div>
-</form>
-<div class="svc-form">
-
-
-
-
-
-    <table>
+    <form class="form" action="/confirm" method="post">
+    @csrf
+    <input type="hidden" name="category_id" value="1">
+      <table id="my-table">
   <tr>
-    <th>お名前</th>
-    <th>性別</th>
-    <th>メールアドレス</th>
-    <th>お問い合わせ種類</th>
-    <th></th>
+        <div class="form__group">
+
+        
+          <div class="form__group-title1">
+           <th> <span class="form__label--item">お名前</span> </th>
+        
+          </div>
+        
+         <div class="form__group-content">
+        <td>
+            <div class="form__input--text2">
+  <input type="text" name="first_name" placeholder="例：山田" value="{{ old('first_name') }}" class="form__text1" />
+<div class="form__error">
+                @error('first_name')
+                    {{ $message }}
+                @enderror
+</div>
+</div>
+</td>
+<td>
+  
+<div class="form__input--text2">
+  <input type="text" name="last_name" placeholder="例：太郎" value="{{ old('last_name') }}" class="form__text1" />
+            
+            <div class="form__error">
+                @error('last_name')
+                    {{ $message }}
+                @enderror
+            </div>
+</div>
+</td>
+<td></td>
+            </div>
+        </div>
+        </div>
   </tr>
-  @foreach ($contacts as $author)
+  <tr>
+        <div class="form__group">
+        <div class="form__group-title2">
+            <th><span class="form__label--item">性別</span></th>
+            
+        </div>
+        <td colspan="3">
+            <div class="form__input--radio">
+               
+                 <label><input type="radio" name="gender" value=1 checked @checked(old('gender') == 1)>1.男性</label>
+                <label><input type="radio" name="gender" value=2 @checked(old('gender') == 2)>2.女性</label>
+                <label><input type="radio" name="gender" value=3 @checked(old('gender') == 3)>3.その他</label>
+            </div>
   
+            <div class="form__error">
+                @error('gender')
+                    {{ $message }}
+                @enderror
+            </div>
+</td>
+            </div>
+  </tr>
   
-    <td>{{ $author->first_name . ' ' . $author->last_name }}</td>
-    <td>{{$author->gender}}</td>
-    <td>{{$author->email}}</td>
-
+  <tr>
+         <div class="form__group">
+            <div class="form__group-title3">
+  <th><span class="form__label--item">メールアドレス</span></th>
   
-    <td>
+          </div>
+          <div class="form__group-content">
+            <div class="form__input--text1">
+              <td colspan="3"><input type="email" name="email" placeholder="test@example.com" value="{{ old('email') }}" />
+            </div>
+            <div class="form__error">
+                @error('email')
+                    {{ $message }}
+                @enderror
+            </div>
+            </td>
+            </div>
+            </div>
+</tr>
 
-    {{ $author->category->content }}
+<tr>            
 
+            <div class="form__group">
+          <div class="form__group-title4">
+            <th><span class="form__label--item">電話番号</span></th>
+          
+          </div>
+          <div class="form__group-content">
+            <div class="form__input--text3">
+              
+             <td> <input type="tel" name="tel01" placeholder="090" value="{{ old('tel01') }}" class="form__tel1"/>
+             <label>-</label>
+<div class="form__error">
+                @error('tel01')
+                    {{ $message }}
+                @enderror
+</div>
 </td>
 
+              
 
-
-    <!-- @if (($author->categories ?? collect())->isNotEmpty())
-    @foreach ($author->categories as $category)
-        {{ $category->content }}
-    @endforeach
-@else
-    <p>カテゴリは設定されていません。</p>
-@endif -->
-
-
-     <td>
-     <x-guest-layout>
-    @livewire('test-modal')
-</x-guest-layout>
-
-
+              <td><input type="tel" name="tel02" placeholder="1234" value="{{ old('tel02') }}" class="form__tel2"/>
+              <label>-</label>
+              <div class="form__error">
+                @error('tel02')
+                    {{ $message }}
+                @enderror
+</diV>
 </td>
-  </tr>
-  @endforeach
+
+              <td><input type="tel" name="tel03" placeholder="5678" value="{{ old('tel03') }}" class="form__tel3"/>
+            
+            <div class="form__error">
+                
+                @error('tel03')
+                    {{ $message }}
+                @enderror
+            </div>
+            </td>
+            </div>
+            </div>
+</tr>
+<tr>
+        <div class="form__group">
+          <div class="form__group-title5">
+            <th><span class="form__label--item">住所</span></th>
+          
+          </div>
+         <div class="form__group-content">
+            <div class="form__input--text">
+              <td colspan="3"><input type="text" name="address" placeholder="例：東京都渋谷区" value="{{ old('address') }}" class="form__text2" />
+            </div>
+            <div class="form__error">
+                @error('address')
+                    {{ $message }}
+                @enderror</td>
+            </div>
+        </div>
+        </div>
+</tr>
+<tr>
+        <div class="form__group">
+          <div class="form__group-title6">
+            <th><span class="form__label--item２">建物名</span></th>
+           
+            
 
 
+          </div>
+         <div class="form__group-content">
+            <div class="form__input--text">
+              <td colspan="3"><input type="text" name="building" placeholder="例：千駄ヶ谷マンション１０１" value="{{ old('building') }}" class="form__text2" /></td>
+        </div>
+        </div>
+        </div>
+</tr>
+<tr>
 
 
+        <div class="form__group">
+          <div class="form__group-title7">
+            <th><span class="form__label--item">お問い合わせの種類</span></th>
+            
+          </div>
+            <div class="form__group-title">
+                <td colspan="3"><select name="content" class="form__select">
+                    <option value="" selected disabled>選択してください</option>
+                    <option value="商品のお届けについて" @selected(old('content') == '商品のお届けについて')>商品のお届けについて</option>
+                    <option value="商品の交換について" @selected(old('content') == '商品の交換について')>商品の交換について</option>
+                    <option value="商品トラブル" @selected(old('content') == '商品トラブル')>商品トラブル</option>
+                    <option value="ショップへのお問い合わせ" @selected(old('content') == 'ショップへのお問い合わせ')>ショップへのお問い合わせ</option>
+                    <option value="その他" @selected(old('content') == 'その他')>その他</option>
+                </select>
+                <div class="form__error">
+                @error('content')
+                    {{ $message }}
+                @enderror</td>
+            </div>
+            </div>
+            </div>
+
+</tr>
+<tr>       
+            <div class="form__group">
+          <div class="form__group-title8">
+            <th><span class="form__label--item">お問い合わせの内容</span></th>
+          
+          </div>
+          <td colspan="3"><div class="form__group-content">
+            <div class="form__input--textarea">
+             <textarea name="detail" placeholder="お問い合わせ内容をご記入ください">{{ old('detail') }}</textarea>
+              
+            </div>
+            <div class="form__error">
+                @error('detail')
+                    {{ $message }}
+                @enderror</td>
+            </div>
+        </div>
+        </div>
+</tr>
 </table>
-
-</main>
+<div class="form__button">
+          <button class="form__button-submit" type="submit">確認画面</button>
+        </div>
+</form>
+</div>

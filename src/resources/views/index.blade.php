@@ -173,7 +173,7 @@
 <tr>
         <div class="form__group">
           <div class="form__group-title6">
-            <th><span class="form__label--item">建物名</span></th>
+            <th><span class="form__label--item２">建物名</span></th>
            
             
 
@@ -237,14 +237,3 @@
         </div>
 </form>
 </div>
-
-
-
-
-
-
-
-
-</main>
-</body>
-</html>

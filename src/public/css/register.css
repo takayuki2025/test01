@@ -13,7 +13,7 @@
 }
 
 header {
-    background-color:white;
+    background-color: white;
     display: flex;
 }
 
@@ -94,7 +94,7 @@ header {
 }
 
 body {
-    background-color:rgb(246, 239, 226)
+    background-color: rgb(246, 239, 226)
 }
 
 .register-form__content {

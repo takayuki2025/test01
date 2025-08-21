@@ -18,6 +18,8 @@ body {
 }
 
 table {
+    position: relative;
+    bottom:  115px;
    background-color:whitesmoke;
     width: 900px;
 
@@ -47,6 +49,7 @@ table {
     border-radius: 3px;
     background-color:aliceblue;
     appearance: none;
+    border: 1px solid black;
 }
 
 
@@ -58,6 +61,8 @@ table {
 }
 
 .form__button-submit {
+    position: relative;
+    bottom:  115px;
     padding: 10px;
     width: 30%;
     height: 50px;
@@ -106,7 +111,10 @@ input[type="email"] {
 
 .form__select {
     background-color: aliceblue;
-    width: 450px;
+    margin-top: 15px;
+    width: 470px;
+    height: 27px;
+    border: 1px solid black;
 }
 
 .form__tel1 {
@@ -145,3 +153,4 @@ th {
     content: "※";
     color: #ff0000;
 }
+

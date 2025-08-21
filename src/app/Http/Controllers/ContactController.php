@@ -148,4 +148,17 @@ public function postCsv()
     // ダウンロード後、ファイルを自動的に削除する
     return Response::download($filePath, $fileName)->deleteFileAfterSend(true);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

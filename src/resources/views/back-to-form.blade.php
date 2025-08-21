@@ -80,7 +80,7 @@
         <td colspan="3">
             <div class="form__input--radio">
                
-                 <label><input type="radio" name="gender" value=1 @checked(old('gender') == 1)>1.男性</label>
+                 <label><input type="radio" name="gender" value=1 checked @checked(old('gender') == 1)>1.男性</label>
                 <label><input type="radio" name="gender" value=2 @checked(old('gender') == 2)>2.女性</label>
                 <label><input type="radio" name="gender" value=3 @checked(old('gender') == 3)>3.その他</label>
             </div>
