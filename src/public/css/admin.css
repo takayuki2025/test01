@@ -1,0 +1,145 @@
+header {
+    display: flex;
+    border-bottom: 1px solid gainsboro;
+}
+
+
+
+
+
+.header__top {
+    display: flex;
+    margin: auto;
+    color: goldenrod;
+    justify-content: center;
+    text-align: center;
+}
+
+.header-nav__button {
+    margin-left: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: rgb(209, 192, 147);
+}
+
+.form {
+    
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+
+
+
+.search_form {
+    display: flex;
+    text-align: center;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+.button-submit {
+    border: 1px solid #ccc;
+    color: white;
+    background-color: rgb(236, 193, 84);
+    border-radius: 4px;
+}
+
+.button-submit2 {
+    color:white;
+    background-color: rgb(218, 194, 135);
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+ th {
+     background-color: goldenrod;
+     color: white;
+     padding: 5px 40px;
+ }
+
+ tr:nth-child(odd) td {
+     background-color: #FFFFFF;
+ }
+
+ td {
+     padding: 25px 40px;
+     background-color: #EEEEEE;
+     text-align: center;
+ }
+
+ svg.w-5.h-5 {
+     /*paginateメソッドの矢印の大きさ調整のために追加*/
+     width: 30px;
+     height: 30px;
+ }
+
+ table {
+    width: 100%;
+    background-color: rgb(148, 98, 31);
+    color: goldenrod;
+ }
+
+ .h3heading {
+    text-align: center;
+    color: goldenrod;
+ }
+
+ .csv-area {
+    display: flex;
+ }
+
+ .csv-button {
+    display: flex;
+    margin-right: auto;
+
+ }
+
+#birthdate {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: goldenrod;
+    background-color: #EEEEEE;
+    height: 28px;
+    width: 150px;
+    margin-right: 60px;
+}
+
+
+.create-form__item-select {
+    background-color: #EEEEEE;
+    color: goldenrod;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 190px;
+    height: 28px;
+}
+
+.search-form__item-input {
+    margin-left: 15px;
+    background-color:#EEEEEE;
+    border-radius: 4px;
+    height: 28px;
+    width: 400px;
+    color: goldenrod;
+    border: 1px solid #ccc;
+}
+
+.csv-submit {
+    margin-left: 15px;
+    background-color: #EEEEEE;
+    color: goldenrod;
+    border: 1px solid #ccc;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+input::placeholder {
+    color :goldenrod;
+    font-size: 13px;
+}

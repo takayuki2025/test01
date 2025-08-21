@@ -1,0 +1,116 @@
+.btn {
+    padding: 10px;
+    margin-top: 20px;
+    height: 10px;
+    border: none;
+    border-radius: 3px;
+    border: 1px solid #a59a9a;
+    background: #c0bdbd;
+    color: rgb(218, 165, 32, 0.8);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+header {
+    background-color: white;
+    display: flex;
+}
+
+.header__top {
+    display: flex;
+    margin: auto;
+    /* color: goldenrod;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 1px solid gainsboro; */
+}
+
+.header__top h2 {
+
+    color: goldenrod;
+
+}
+
+
+.register-form__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.register-form__heading {
+    color: goldenrod;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form {
+    margin: 0 auto;
+    width: 25%;
+    text-align: center;
+}
+
+.form__group {
+    margin-bottom: 5px;
+}
+
+.form__group-title {
+    text-align: left;
+}
+
+.form__error {
+    height: 20px;
+    color: #ff0000;
+    text-align: left;
+}
+
+.form__input--text input {
+    width: 230px;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    appearance: none;
+}
+
+.form__button {
+    margin-top: 20px;
+}
+
+.form__button-submit {
+    padding: 10px;
+    width: 40%;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    background: rgb(186, 140, 23);
+    color: #fff;
+    cursor: pointer;
+}
+
+.login__link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+body {
+    background-color: rgb(246, 239, 226)
+}
+
+.register-form__content {
+    /* margin-top: 76px; */
+    height: 300px;
+    width: 800px;
+    border: 1px solid rgb(153, 147, 112);
+    background-color: white
+}
+
+
+
+.form__label--item {
+    color: goldenrod;
+}
+
+.form__input--formtext {
+    /* width: 400px; */
+    background-color: #f2f1f1;
+}

@@ -1,0 +1,43 @@
+.thanks_word {
+    color: goldenrod;
+    position: absolute;
+        top: 280px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+}
+
+.thanks_button {
+    position: absolute;
+        top: 350px;
+        left: 50%;
+        width: 100px;
+        padding: 15px 0;
+        color: white;
+        background-color: goldenrod;
+        text-align: center;
+        text-decoration: none;
+        transform: translate(-50%, -50%);
+        border-radius: 4px;
+}
+
+
+body {
+    position: relative;
+    z-index: 1;
+    
+}
+
+body::before {
+    content: "thank you";
+    position: absolute;
+    top: 150px;
+    left: 300px;
+    width: 100%;
+    height: 100%;
+    font-size: 200px;
+    color: #ccc; 
+    opacity: 0.2;
+    word-break: break-all;
+    white-space: pre-wrap;
+    z-index: -1;
+}

@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
+
+use App\Http\Controllers\AuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,71 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('admin', [AuthController::class, 'index']);
 });
+
+Route::get('/admin', [AuthController::class, 'index']);
+
+
+
+
+
+
+
+Route::get('/', [ContactController::class, 'index']);
+
+
+
+// Route::post('/register', [ContactController::class, 'register'])->name('register');;
+// Route::match(['get', 'post'], '/register', [ContactController::class, 'register']);
+
+// Route::post('/login', [ContactController::class, 'login'])->name('login');;
+// Route::post('/login', [ContactController::class, 'login']);
+
+
+
+Route::get('/admin', [ContactController::class, 'admin']);
+Route::post('/admin', [ContactController::class, 'admin']);
+Route::get('/admin/search', [ContactController::class, 'search']);
+
+
+
+
+Route::post('/confirm', [ContactController::class, 'confirm']);
+Route::match(['get', 'post'], '/confirm', [ContactController::class, 'confirm']);
+
+
+
+Route::match(['get', 'post'], '/back-to-form', [ContactController::class, 'confirm']);
+Route::get('/back-to-form', [ContactController::class, 'confirm2']);
+Route::match(['get', 'post'], '/back-to-form', [ContactController::class, 'confirm2']);
+
+
+// Route::get('/confirm', [ContactController::class, 'confirm']);
+
+Route::post('/thanks', [ContactController::class, 'store']);
+
+Route::post('/test-modal', [ContactController::class, 'modal']);
+
+
+
+Route::get('/export', [ExportController::class, 'export']);
+
+
+
+
+
+
+
+
+
+Route::post('/postcsv', [ContactController::class, 'postCsv']);
