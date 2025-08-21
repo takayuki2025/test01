@@ -64,6 +64,8 @@ class ContactController extends Controller
 {
 
     $contact = $request->only(['first_name', 'last_name', 'gender',  'email', 'tel01', 'tel02', 'tel03', 'address', 'building', 'content', 'detail']);
+
+    session(['data' => $request->all()]);
 //    dd($contact);
     return view('confirm', compact('contact'));
 }
@@ -72,8 +74,10 @@ class ContactController extends Controller
 {
 
     $contact = $request->only(['first_name', 'last_name', 'gender',  'email', 'tel01', 'tel02', 'tel03', 'address', 'building', 'content', 'detail']);
-    // dd($contact);
-    return view('back-to-form', compact('contact'));
+
+    $formData = session('form_data', []);
+    // dd($request2);
+    return view('back-to-form', compact('contact', 'formData'));
 }
 
 

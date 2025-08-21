@@ -8,6 +8,8 @@ header {
 
 
 .header__top {
+    position: relative;
+    left: 50px;
     display: flex;
     margin: auto;
     color: goldenrod;
@@ -48,9 +50,12 @@ header {
 }
 
 .button-submit2 {
+    position: relative;
+    bottom: 2px;
     color:white;
     background-color: rgb(218, 194, 135);
     padding: 4px;
+    text-decoration: none;
     border: 1px solid #ccc;
     border-radius: 4px;
 }

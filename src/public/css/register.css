@@ -1,11 +1,13 @@
 .btn {
+    position: relative;
+    right: 40px;
     padding: 10px;
     margin-top: 20px;
     height: 10px;
     width: 58px;
     border: none;
     border-radius: 3px;
-    border: 1px solid #a59a9a;
+    border: 1px solid #b2a2a2;
     background: #c0bdbd;
     color: rgb(218, 165, 32, 0.8);
     font-size: 15px;
@@ -27,9 +29,9 @@ header {
 }
 
 .header__top h2 {
-
+    position: relative;
+    left: 40px;
     color: goldenrod;
-
 }
 
 

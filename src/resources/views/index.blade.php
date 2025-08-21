@@ -73,12 +73,18 @@
             <th><span class="form__label--item">性別</span></th>
             
         </div>
+
+       
         <td colspan="3">
             <div class="form__input--radio">
-               
+
+ <form action="/session" method="post">
+          @csrf
+
                  <label><input type="radio" name="gender" value=1 checked @checked(old('gender') == 1)>1.男性</label>
                 <label><input type="radio" name="gender" value=2 @checked(old('gender') == 2)>2.女性</label>
                 <label><input type="radio" name="gender" value=3 @checked(old('gender') == 3)>3.その他</label>
+</form>
             </div>
   
             <div class="form__error">
@@ -197,11 +203,11 @@
             <div class="form__group-title">
                 <td colspan="3"><select name="content" class="form__select">
                     <option value="" selected disabled>選択してください</option>
-                    <option value="商品のお届けについて" @selected(old('content') == '商品のお届けについて')>商品のお届けについて</option>
-                    <option value="商品の交換について" @selected(old('content') == '商品の交換について')>商品の交換について</option>
-                    <option value="商品トラブル" @selected(old('content') == '商品トラブル')>商品トラブル</option>
-                    <option value="ショップへのお問い合わせ" @selected(old('content') == 'ショップへのお問い合わせ')>ショップへのお問い合わせ</option>
-                    <option value="その他" @selected(old('content') == 'その他')>その他</option>
+                    <option value="商品のお届けについて" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>>商品のお届けについて</option>
+                    <option value="商品の交換について" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>>商品の交換について</option>
+                    <option value="商品トラブル" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>>商品トラブル</option>
+                    <option value="ショップへのお問い合わせ" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>>ショップへのお問い合わせ</option>
+                    <option value="その他" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>>その他</option>
                 </select>
                 <div class="form__error">
                 @error('content')
@@ -237,3 +243,14 @@
         </div>
 </form>
 </div>
+
+
+
+
+
+
+
+
+</main>
+</body>
+</html>
