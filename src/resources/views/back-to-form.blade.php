@@ -5,203 +5,174 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Form3</title>
- 
+  <title>Contact Page2</title>
   <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
 </head>
 
 <body>
-    
 
-<header class="header">
-        <div class="header__top">
-            <h2>FashionablyLate</h2>
-        </div>
-</header>
+  <header class="header">
+    <div class="header__top">
+      <h2>FashionablyLate</h2>
+    </div>
+  </header>
 
-<main>
+
+  <main>
 
     <div class="contact-form__content">
-      <div class="contact-form__heading">
-        <h3>Contact</h3>
-      </div>
+          <div class="contact-form__heading">
+            <h3>Contact</h3>
+          </div>
 
-    <form class="form" action="/confirm" method="post">
-    @csrf
-    <input type="hidden" name="category_id" value="1">
+      <form class="form" action="/confirm" method="post">
+      @csrf
+      <input type="hidden" name="category_id" value="1">
       <table id="my-table">
-  <tr>
-        <div class="form__group">
+        <tr>
+          <div class="form__group">
+            <div class="form__group-title1">
+              <th> <span class="form__label--item">お名前</span> </th>
+            </div>
+            <div class="form__group-content">
+              <td>
+                <div class="form__input--text2">
+                  <input type="text" name="first_name" value="{{ $contact['first_name'] }}" class="form__text1"/>
+                    <div class="form__error">
+                      @error('first_name')
+                      {{ $message }}
+                      @enderror
+                    </div>
+                </div>
+            </td>
+            <td>
+              <div class="form__input--text2">
+                <input type="text" name="last_name" value="{{ $contact['last_name'] }}" class="form__text5"/>
+                    <div class="form__error">
+                      @error('last_name')
+                      {{ $message }}
+                      @enderror
+                    </div>
+              </div>
+            </td>
+            <td></td>
+              </div>
+            </div>
+            </div>
+        </tr>
 
-        
-          <div class="form__group-title1">
-           <th> <span class="form__label--item">お名前</span> </th>
-        
-          </div>
-        
-         <div class="form__group-content">
-        <td>
-            <div class="form__input--text2">
-             
-  
-  <input type="text" name="first_name" value="{{ $contact['first_name'] }}" class="form__text1"/>
-  
-<div class="form__error">
-                @error('first_name')
+        <tr>
+          <div class="form__group">
+            <div class="form__group-title2">
+              <th><span class="form__label--item">性別</span></th>
+            </div>
+              <td colspan="3">
+                <div class="form__input--radio">
+                  <label><input type="radio" name="gender" value=1 checked @checked(old('gender') == 1)>1.男性</label>
+                  <label><input type="radio" name="gender" value=2 @checked(old('gender') == 2)>2.女性</label>
+                  <label><input type="radio" name="gender" value=3 @checked(old('gender') == 3)>3.その他</label>
+                </div>
+                  <div class="form__error">
+                    @error('gender')
                     {{ $message }}
-                @enderror
-</div>
-</div>
-</td>
-<td>
+                    @enderror
+                  </div>
+              </td>
+            </div>
+        </tr>
   
-<div class="form__input--text2">
-  <input type="text" name="last_name" value="{{ $contact['last_name'] }}" class="form__text5"/>
-  <class="form__text1" />
-            
-            <div class="form__error">
-                @error('last_name')
-                    {{ $message }}
-                @enderror
-            </div>
-</div>
-</td>
-<td></td>
-            </div>
-        </div>
-        </div>
-  </tr>
-  <tr>
-        <div class="form__group">
-        <div class="form__group-title2">
-            <th><span class="form__label--item">性別</span></th>
-            
-        </div>
-        <td colspan="3">
-            <div class="form__input--radio">
-               
-                 <label><input type="radio" name="gender" value=1 checked @checked(old('gender') == 1)>1.男性</label>
-                <label><input type="radio" name="gender" value=2 @checked(old('gender') == 2)>2.女性</label>
-                <label><input type="radio" name="gender" value=3 @checked(old('gender') == 3)>3.その他</label>
-            </div>
-  
-            <div class="form__error">
-                @error('gender')
-                    {{ $message }}
-                @enderror
-            </div>
-</td>
-            </div>
-  </tr>
-  
-  <tr>
-         <div class="form__group">
+        <tr>
+          <div class="form__group">
             <div class="form__group-title3">
-  <th><span class="form__label--item">メールアドレス</span></th>
-  
-          </div>
-          <div class="form__group-content">
-            <div class="form__input--text1">
-              <td colspan="3"><input type="email" name="email" value="{{ $contact['email'] }}" />
+              <th><span class="form__label--item">メールアドレス</span></th>
             </div>
-            <div class="form__error">
-                @error('email')
+              <div class="form__group-content">
+                <div class="form__input--text1">
+                  <td colspan="3"><input type="email" name="email" value="{{ $contact['email'] }}" />
+                </div>
+                  <div class="form__error">
+                    @error('email')
                     {{ $message }}
-                @enderror
+                    @enderror
+                  </div>
+                  </td>
+              </div>
             </div>
-            </td>
-            </div>
-            </div>
-</tr>
+        </tr>
 
-<tr>            
+        <tr>
+          <div class="form__group">
+            <div class="form__group-title4">
+              <th><span class="form__label--item">電話番号</span></th>
+            </div>
+              <div class="form__group-content">
+                <div class="form__input--text3">
+                  <td><input type="tel" name="tel01" value="{{ $contact['tel01'] }}" class="form__tel1"/>
+                    <label>-</label>
+                      <div class="form__error">
+                        @error('tel01')
+                        {{ $message }}
+                        @enderror
+                      </div>
+                  </td>
 
+                  <td><input type="tel" name="tel02" value="{{ $contact['tel02'] }}"class="form__tel2"/>
+                    <label>-</label>
+                      <div class="form__error">
+                        @error('tel02')
+                        {{ $message }}
+                        @enderror
+                      </diV>
+                  </td>
+
+                  <td><input type="tel" name="tel03" value="{{ $contact['tel03'] }}" class="form__tel3"/>
+                    <div class="form__error">
+                      @error('tel03')
+                      {{ $message }}
+                      @enderror
+                    </div>
+                  </td>
+                </div>
+              </div>
+          </tr>
+
+          <tr>
             <div class="form__group">
-          <div class="form__group-title4">
-            <th><span class="form__label--item">電話番号</span></th>
-          
+              <div class="form__group-title5">
+                <th><span class="form__label--item">住所</span></th>
+              </div>
+                <div class="form__group-content">
+                  <div class="form__input--text">
+                    <td colspan="3"><input type="text" name="address" value="{{ $contact['address'] }}" class="form__text2" />
+                  </div>
+                    <div class="form__error">
+                      @error('address')
+                      {{ $message }}
+                      @enderror</td>
+                    </div>
+                </div>
+            </div>
+        </tr>
+
+        <tr>
+          <div class="form__group">
+            <div class="form__group-title6">
+              <th><span class="form__label--item1">建物名</span></th>
+            </div>
+              <div class="form__group-content">
+                <div class="form__input--text">
+                  <td colspan="3"><input type="text" name="building" value="{{ $contact['building'] }}" class="form__text2" /></td>
+                </div>
+              </div>
           </div>
-          <div class="form__group-content">
-            <div class="form__input--text3">
-              
-             <td><input type="tel" name="tel01" value="{{ $contact['tel01'] }}" 
-             class="form__tel1"/>
-             <label>-</label>
-<div class="form__error">
-                @error('tel01')
-                    {{ $message }}
-                @enderror
-</div>
-</td>
+        </tr>
 
-              
-
-              <td><input type="tel" name="tel02" value="{{ $contact['tel02'] }}" 
-              class="form__tel2"/>
-              <label>-</label>
-              <div class="form__error">
-                @error('tel02')
-                    {{ $message }}
-                @enderror
-</diV>
-</td>
-
-              <td><input type="tel" name="tel03" value="{{ $contact['tel03'] }}" class="form__tel3"/>
-            
-            <div class="form__error">
-                
-                @error('tel03')
-                    {{ $message }}
-                @enderror
+        <tr>
+          <div class="form__group">
+            <div class="form__group-title7">
+              <th><span class="form__label--item">お問い合わせの種類</span></th>
             </div>
-            </td>
-            </div>
-            </div>
-</tr>
-<tr>
-        <div class="form__group">
-          <div class="form__group-title5">
-            <th><span class="form__label--item">住所</span></th>
-          
-          </div>
-         <div class="form__group-content">
-            <div class="form__input--text">
-              <td colspan="3"><input type="text" name="address" value="{{ $contact['address'] }}" class="form__text2" />
-            </div>
-            <div class="form__error">
-                @error('address')
-                    {{ $message }}
-                @enderror</td>
-            </div>
-        </div>
-        </div>
-</tr>
-<tr>
-        <div class="form__group">
-          <div class="form__group-title6">
-            <th><span class="form__label--item1">建物名</span></th>
-           
-            
-
-
-          </div>
-         <div class="form__group-content">
-            <div class="form__input--text">
-              <td colspan="3"><input type="text" name="building" value="{{ $contact['building'] }}" class="form__text2" />
-            </td>
-        </div>
-        </div>
-        </div>
-</tr>
-<tr>
-
-
-        <div class="form__group">
-          <div class="form__group-title7">
-            <th><span class="form__label--item">お問い合わせの種類</span></th>
-            
-          </div>
-            <div class="form__group-title">
+              <div class="form__group-title">
                 <td colspan="3"><select name="content" class="form__select">
                     <option value="" selected disabled>選択してください</option>
                     <option value="商品のお届けについて" @selected(old('content') == '商品のお届けについて')>商品のお届けについて</option>
@@ -209,52 +180,45 @@
                     <option value="商品トラブル" @selected(old('content') == '商品トラブル')>商品トラブル</option>
                     <option value="ショップへのお問い合わせ" @selected(old('content') == 'ショップへのお問い合わせ')>ショップへのお問い合わせ</option>
                     <option value="その他" @selected(old('content') == 'その他')>その他</option>
-                </select>
-                <div class="form__error">
-                @error('content')
-                    {{ $message }}
-                @enderror</td>
+                                </select>
+                                  <div class="form__error">
+                                    @error('content')
+                                    {{ $message }}
+                                    @enderror
+                </td>
+              </div>
             </div>
-            </div>
-            </div>
-
-</tr>
-<tr>       
-            <div class="form__group">
-          <div class="form__group-title8">
-            <th><span class="form__label--item">お問い合わせの内容</span></th>
-          
           </div>
-          <td colspan="3"><div class="form__group-content">
-            <div class="form__input--textarea">
-             <textarea name="detail"> {{ $contact['detail'] }} </textarea>
-              
+        </tr>
+
+        <tr>
+          <div class="form__group">
+            <div class="form__group-title8">
+              <th><span class="form__label--item">お問い合わせの内容</span></th>
             </div>
-            <div class="form__error">
-                @error('detail')
+              <td colspan="3"><div class="form__group-content">
+                <div class="form__input--textarea">
+                  <textarea name="detail"> {{ $contact['detail'] }} </textarea>
+                </div>
+                  <div class="form__error">
+                    @error('detail')
                     {{ $message }}
-                @enderror</td>
+                    @enderror
+                  </div>
+              </td>
             </div>
-        </div>
-        </div>
-</tr>
-</table>
-<div class="form__button">
+          </div>
+      </tr>
+    </table>
 
+      <div class="form__button">
+        <button class="form__button-submit" type="submit">確認画面</button>
+      </div>
+    </form>
+  </div>
 
-
-          <button class="form__button-submit" type="submit">確認画面</button>
-        </div>
-</form>
-</div>
-
-
-
-
-
-
-
-
-</main>
+  </main>
+  
 </body>
+
 </html>

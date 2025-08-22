@@ -30,8 +30,8 @@ body {
 body::before {
     content: "thank you";
     position: absolute;
-    top: 150px;
-    left: 300px;
+    top: 180px;
+    left: 180px;
     width: 100%;
     height: 100%;
     font-size: 200px;

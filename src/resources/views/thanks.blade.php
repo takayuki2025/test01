@@ -6,18 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thanks Page</title>
- 
   <link rel="stylesheet" href="{{ asset('css/thanks.css') }}" />
 </head>
 
 <body>
-<main>
-  <div class="thanks_bigword">
-<h2 class="thanks_word">お問い合わせありがとうございました。</h2>
+  <main>
+    <div class="thanks_bigword">
+      <h2 class="thanks_word">お問い合わせありがとうございました。</h2>
+      <a href='/' class="thanks_button">HOME<a>
+    </div>
 
-
-<a href='/' class="thanks_button">HOME<a>
-</div>
-
-</main>
+  </main>
+  
 </body>

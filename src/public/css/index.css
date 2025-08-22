@@ -83,6 +83,14 @@ table {
     text-align: left;
 }
 
+.form__error2 {
+    position: relative;
+    left: 70px;
+    height: 20px;
+    color: #ff0000;
+    text-align: left;
+}
+
 .form__input--text2 {
   
     width: 300px;
@@ -92,7 +100,7 @@ table {
     position: relative;
     right: 40px;
     background-color: aliceblue;
-    width: 200px;
+    width: 215px;
 } 
 
 .form__text5 {
@@ -100,7 +108,7 @@ table {
     left: 40px;
     background-color: aliceblue;
     height: 16px;
-    width: 220px;
+    width: 235px;
 }
 
 
@@ -117,13 +125,13 @@ input[type="radio"] {
 
 input[type="email"] {
     background-color: aliceblue;
-    width: 450px;
+    width: 460px;
 }
 
 
 .form__text2 {
     background-color: aliceblue;
-    width: 450px;
+    width: 460px;
 }
 
 .form__select {
@@ -137,7 +145,7 @@ input[type="email"] {
 .form__tel1 {
     background-color: aliceblue;
     margin: 0px;
-    width: 90px;
+    width: 100px;
 }
 
 .form__tel2 {
