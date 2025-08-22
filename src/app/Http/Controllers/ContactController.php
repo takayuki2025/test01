@@ -17,32 +17,11 @@ use Illuminate\Support\Facades\Response;
 class ContactController extends Controller
 {
 
-
-
-
-
-
-
-
-
-
-
     public function index()
     {
         return view('index');
     }
 
-
-
-    // public function register()
-    // {
-    //     return view('auth.register');
-    // }
-
-    // public function login(Request $request)
-    // {
-    //     return view('auth.login');
-    // }
 
         public function admin(Request $request)
     {
@@ -56,8 +35,6 @@ class ContactController extends Controller
 // return view('admin', ['contacts' => $contacts]);
        return view('admin', compact('contacts', 'categories', ));
     }
-
-
 
 
     public function confirm(ContactRequest $request)
@@ -83,7 +60,6 @@ class ContactController extends Controller
     return view('back-to-form', compact('contact', ));
 }
 
-
     public function store(Request $request)
     
     {
@@ -99,8 +75,6 @@ class ContactController extends Controller
 
 
 
-
-
     public function search(Request $request)
 {
 
@@ -112,15 +86,13 @@ class ContactController extends Controller
 
 
 
-
-
-
     public function modal()
     {
         $contacts = Contact::with('category')->paginate(7);
         $categories = Category::all();
         return view('test-modal', compact('contacts', 'categories', ));
     }
+
 
 
 public function postCsv()
@@ -155,15 +127,6 @@ public function postCsv()
     // ダウンロード後、ファイルを自動的に削除する
     return Response::download($filePath, $fileName)->deleteFileAfterSend(true);
 }
-
-
-
-
-
-
-
-
-
 
 
 

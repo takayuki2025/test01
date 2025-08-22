@@ -11,16 +11,10 @@ class Contact extends Model
 {
 
 
-    
-
-
-
-
-
     use HasFactory;
     protected $fillable = [
         'category_id',
-        'user_id',
+        // 'user_id',
         'first_name',
         'last_name',
         'gender',
@@ -30,6 +24,7 @@ class Contact extends Model
         'building',
         'detail'
     ];
+
 
     public function category()
 {
@@ -85,7 +80,6 @@ public function scopeKeywordSearch(Builder $query, $keyword,)
 
 
 
-    
 }
 
     public function scopeCategorySearch(Builder $query, $category_id)
@@ -94,13 +88,9 @@ public function scopeKeywordSearch(Builder $query, $keyword,)
         if ($category_id) {
             $query->where('category_id', $category_id);
         }
-        
+
         return $query;
     }
-
-
-
-
 
 
 

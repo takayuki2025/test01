@@ -62,6 +62,7 @@ header {
 }
 
 .form__error {
+    font-size: 70%;
     height: 20px;
     color: #ff0000;
     text-align: left;

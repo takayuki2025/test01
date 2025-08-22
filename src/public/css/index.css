@@ -83,6 +83,13 @@ table {
     text-align: left;
 }
 
+.form__error-tel {
+    height: 20px;
+    color: #ff0000;
+    text-align: left;
+    font-size: 75%;
+}
+
 .form__error2 {
     position: relative;
     left: 70px;

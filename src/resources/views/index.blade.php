@@ -115,7 +115,7 @@
               <div class="form__input--text3">
                 <td> <input type="tel" name="tel01" placeholder="例：090" value="{{ old('tel01') }}" class="form__tel1"/>
                 <label>-</label>
-                  <div class="form__error">
+                  <div class="form__error-tel">
                     @error('tel01')
                     {{ $message }}
                     @enderror
@@ -123,14 +123,14 @@
                 </td>
                 <td><input type="tel" name="tel02" placeholder="例：1234" value="{{ old('tel02') }}" class="form__tel2"/>
                 <label>-</label>
-                  <div class="form__error">
+                  <div class="form__error-tel">
                     @error('tel02')
                     {{ $message }}
                     @enderror
                   </diV>
                 </td>
                 <td><input type="tel" name="tel03" placeholder="例：5678" value="{{ old('tel03') }}" class="form__tel3"/>
-                  <div class="form__error">
+                  <div class="form__error-tel">
                     @error('tel03')
                     {{ $message }}
                     @enderror

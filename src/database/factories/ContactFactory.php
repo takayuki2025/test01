@@ -36,7 +36,7 @@ class ContactFactory extends Factory
         'detail' => $faker->realText(25),
 
         'category_id' => $categoryId,
-        'user_id' => $userId,
+        // 'user_id' => $userId,
         ];
     }
 }
