@@ -84,14 +84,31 @@ table {
 }
 
 .form__input--text2 {
-   
+  
     width: 300px;
 }
 
 .form__text1 {
+    position: relative;
+    right: 40px;
     background-color: aliceblue;
-    width: 170px;
+    width: 200px;
 } 
+
+.form__text5 {
+    position: relative;
+    left: 40px;
+    background-color: aliceblue;
+    height: 16px;
+    width: 220px;
+}
+
+
+
+
+
+
+
 
 input[type="radio"] {
     background-color: aliceblue;

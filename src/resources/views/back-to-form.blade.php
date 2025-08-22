@@ -56,7 +56,7 @@
 <td>
   
 <div class="form__input--text2">
-  <input type="text" name="last_name" value="{{ $contact['last_name'] }}" class="form__text1"/>
+  <input type="text" name="last_name" value="{{ $contact['last_name'] }}" class="form__text5"/>
   <class="form__text1" />
             
             <div class="form__error">
@@ -179,7 +179,7 @@
 <tr>
         <div class="form__group">
           <div class="form__group-title6">
-            <th><span class="form__label--item">建物名</span></th>
+            <th><span class="form__label--item1">建物名</span></th>
            
             
 

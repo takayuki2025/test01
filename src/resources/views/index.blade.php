@@ -53,7 +53,7 @@
 <td>
   
 <div class="form__input--text2">
-  <input type="text" name="last_name" placeholder="例：太郎" value="{{ old('last_name') }}" class="form__text1" />
+  <input type="text" name="last_name" placeholder="例：太郎" value="{{ old('last_name') }}" class="form__text5" />
             
             <div class="form__error">
                 @error('last_name')
