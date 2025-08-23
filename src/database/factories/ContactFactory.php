@@ -13,6 +13,9 @@ use Faker\Factory as FakerFactory;
  */
 class ContactFactory extends Factory
 {
+
+            protected $model = Contact::class;
+
     /**
      * Define the model's default state.
      *
@@ -21,9 +24,12 @@ class ContactFactory extends Factory
     public function definition(): array
     {
 
-        $faker = FakerFactory::create('ja_JP');
+        // $faker = FakerFactory::create('ja_JP');
+        $faker = FakerFactory::create(config('app.faker_locale'));
+
         $categoryId = $faker->numberBetween(1, 5);
-        $userId = \App\Models\User::factory()->create()->id;
+        $categoryId = $this->faker->numberBetween(1, 5);
+        // $userId = \App\Models\User::factory()->create()->id;
 
         return [
         'first_name' => $this->faker->lastName(),
@@ -36,7 +42,7 @@ class ContactFactory extends Factory
         'detail' => $faker->realText(25),
 
         'category_id' => $categoryId,
-        // 'user_id' => $userId,
+
         ];
     }
 }

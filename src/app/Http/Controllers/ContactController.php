@@ -115,7 +115,7 @@ class ContactController extends Controller
     public function search(Request $request)
 {
 
-  $contacts = Contact::with('category')->CategorySearch($request->category_id)->KeywordSearch($request->keyword)->paginate(7);
+  $contacts = Contact::with('category')->CategorySearch($request->category_id)->KeywordSearch($request->keyword , $request->keyword_gender)->paginate(7);
   $categories = Category::all();
 
   return view('admin', compact('contacts', 'categories'));

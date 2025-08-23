@@ -35,7 +35,8 @@
         @csrf
           <div class="search-form__item">
             <input class="search-form__item-input" type="text" placeholder="名前やメールアドレスを入力してください" name="keyword" value="{{ old('keyword') }}">
-              <select class="create-form__item-select" name="gender_number">
+              <select class="create-form__item-select" name="keyword_gender">
+                                                        <!-- name="gender_number" -->
                 <option value="" selected >性別</option>
                 <option value="1">男性</option>
                 <option value="2">女性</option>
@@ -83,8 +84,9 @@
         @foreach ($contacts as $author)
         <td>{{ $author->first_name . ' ' . $author->last_name }}</td>
 
-        <td>{{$author->gender_name}}</td>
-            <!-- {{$author->gender}} -->
+        <td>{{$author->gender}}</td>
+            
+            <!-- {{$author->gender_name}} -->
 
         <td>{{$author->email}}</td>
         <td>

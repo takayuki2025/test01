@@ -23,7 +23,6 @@ table {
    background-color:whitesmoke;
     width: 900px;
 
-
 }
 
 .form {
@@ -95,7 +94,7 @@ table {
 
 .form__error2 {
     position: relative;
-    left: 70px;
+    left: 100px;
     height: 20px;
     color: #ff0000;
     text-align: left;
@@ -137,6 +136,8 @@ input[type="email"] {
 
 .form__tel1 {
     background-color: aliceblue;
+    position: relative;
+    left: 10px;
     margin: 0px;
     width: 90px;
 }
