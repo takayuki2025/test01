@@ -68,9 +68,9 @@
             </div>
               <td colspan="3">
                 <div class="form__input--radio">
-                  <label><input type="radio" name="gender" value=1 checked @checked(old('gender') == 1)>1.男性</label>
-                  <label><input type="radio" name="gender" value=2 @checked(old('gender') == 2)>2.女性</label>
-                  <label><input type="radio" name="gender" value=3 @checked(old('gender') == 3)>3.その他</label>
+                  <label><input type="radio" name="gender" value=1 @checked($contact['gender'] == 1)>男性</label>
+                  <label><input type="radio" name="gender" value=2 @checked($contact['gender'] == 2)>女性</label>
+                  <label><input type="radio" name="gender" value=3 @checked($contact['gender'] == 3)>その他</label>
                 </div>
                   <div class="form__error">
                     @error('gender')
@@ -80,7 +80,7 @@
               </td>
             </div>
         </tr>
-  
+
         <tr>
           <div class="form__group">
             <div class="form__group-title3">
@@ -108,7 +108,7 @@
               <div class="form__group-content">
                 <div class="form__input--text3">
                   <td><input type="tel" name="tel01" value="{{ $contact['tel01'] }}" class="form__tel1"/>
-                    <label>-</label>
+
                       <div class="form__error">
                         @error('tel01')
                         {{ $message }}
@@ -116,8 +116,14 @@
                       </div>
                   </td>
 
-                  <td><input type="tel" name="tel02" value="{{ $contact['tel02'] }}"class="form__tel2"/>
+                  <td>
+<div class="label">
                     <label>-</label>
+
+                  <input type="tel" name="tel02" value="{{ $contact['tel02'] }}"class="form__tel2"/>
+
+                    <label>-</label>
+</div>
                       <div class="form__error">
                         @error('tel02')
                         {{ $message }}
@@ -171,15 +177,16 @@
           <div class="form__group">
             <div class="form__group-title7">
               <th><span class="form__label--item">お問い合わせの種類</span></th>
+
             </div>
               <div class="form__group-title">
-                <td colspan="3"><select name="content" class="form__select">
-                    <option value="" selected disabled>選択してください</option>
-                    <option value="商品のお届けについて" @selected(old('content') == '商品のお届けについて')>商品のお届けについて</option>
-                    <option value="商品の交換について" @selected(old('content') == '商品の交換について')>商品の交換について</option>
-                    <option value="商品トラブル" @selected(old('content') == '商品トラブル')>商品トラブル</option>
-                    <option value="ショップへのお問い合わせ" @selected(old('content') == 'ショップへのお問い合わせ')>ショップへのお問い合わせ</option>
-                    <option value="その他" @selected(old('content') == 'その他')>その他</option>
+                <td colspan="3">
+                                <select name="content" class="form__select">
+                    <option value="商品のお届けについて" @selected($contact['content'] == '商品のお届けについて')>商品のお届けについて</option>
+                    <option value="商品の交換について" @selected($contact['content'] == '商品の交換について')>商品の交換について</option>
+                    <option value="商品トラブル" @selected($contact['content'] == '商品トラブル')>商品トラブル</option>
+                    <option value="ショップへのお問い合わせ" @selected($contact['content'] == 'ショップへのお問い合わせ')>ショップへのお問い合わせ</option>
+                    <option value="その他" @selected($contact['content'] == 'その他')>その他</option>
                                 </select>
                                   <div class="form__error">
                                     @error('content')
@@ -218,7 +225,7 @@
   </div>
 
   </main>
-  
+
 </body>
 
 </html>

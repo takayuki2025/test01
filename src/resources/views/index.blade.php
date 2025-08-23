@@ -11,7 +11,7 @@
 
 
 <body>
-    
+
 
   <header class="header">
         <div class="header__top">
@@ -34,9 +34,9 @@
     <tr>
       <div class="form__group-title1">
         <th> <span class="form__label--item">お名前</span> </th>
-        
+
       </div>
-        
+
       <div class="form__group-content">
         <td>
         <div class="form__input--text2">
@@ -73,9 +73,9 @@
             <div class="form__input--radio">
               <form action="/session" method="post">
               @csrf
-                <label><input type="radio" name="gender" value=1 checked @checked(old('gender') == 1)>1.男性</label>
-                <label><input type="radio" name="gender" value=2 @checked(old('gender') == 2)>2.女性</label>
-                <label><input type="radio" name="gender" value=3 @checked(old('gender') == 3)>3.その他</label>
+                <label><input type="radio" name="gender" value=1 checked @checked(old('gender') == 1)>男性</label>
+                <label><input type="radio" name="gender" value=2 @checked(old('gender') == 2)>女性</label>
+                <label><input type="radio" name="gender" value=3 @checked(old('gender') == 3)>その他</label>
               </form>
             </div>
               <div class="form__error">
@@ -86,7 +86,7 @@
         </td>
         </div>
         </tr>
-  
+
         <tr>
           <div class="form__group">
             <div class="form__group-title3">
@@ -106,7 +106,7 @@
             </div>
             </tr>
 
-        <tr>            
+        <tr>
           <div class="form__group">
             <div class="form__group-title4">
               <th><span class="form__label--item">電話番号</span></th>
@@ -114,23 +114,29 @@
             <div class="form__group-content">
               <div class="form__input--text3">
                 <td> <input type="tel" name="tel01" placeholder="例：090" value="{{ old('tel01') }}" class="form__tel1"/>
-                <label>-</label>
+                <!-- <label>-</label> -->
                   <div class="form__error-tel">
                     @error('tel01')
                     {{ $message }}
                     @enderror
                   </div>
                 </td>
-                <td><input type="tel" name="tel02" placeholder="例：1234" value="{{ old('tel02') }}" class="form__tel2"/>
+                <td>
+                  <div class="label">
                 <label>-</label>
-                  <div class="form__error-tel">
+                <input type="tel" name="tel02" placeholder="例：1234" value="{{ old('tel02') }}" class="form__tel2"/>
+                <label>-</label>
+                  </div>
+                  <div class="form__error-tel2">
                     @error('tel02')
                     {{ $message }}
                     @enderror
                   </diV>
                 </td>
-                <td><input type="tel" name="tel03" placeholder="例：5678" value="{{ old('tel03') }}" class="form__tel3"/>
-                  <div class="form__error-tel">
+
+                <td>
+                <input type="tel" name="tel03" placeholder="例：5678" value="{{ old('tel03') }}" class="form__tel3"/>
+                  <div class="form__error-tel3">
                     @error('tel03')
                     {{ $message }}
                     @enderror
@@ -162,7 +168,7 @@
           <div class="form__group">
             <div class="form__group-title6">
               <th><span class="form__label--item２">建物名</span></th>
-           </div>
+          </div>
             <div class="form__group-content">
               <div class="form__input--text">
                 <td colspan="3"><input type="text" name="building" placeholder="例：千駄ヶ谷マンション１０１" value="{{ old('building') }}" class="form__text2" /></td>
@@ -177,13 +183,14 @@
               <th><span class="form__label--item">お問い合わせの種類</span></th>
             </div>
               <div class="form__group-title">
-                <td colspan="3"><select name="content" class="form__select">
+                <td colspan="3">
+                                <select name="content" class="form__select">
                     <option value="" selected disabled>選択してください</option>
-                    <option value="商品のお届けについて" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>>商品のお届けについて</option>
-                    <option value="商品の交換について" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>>商品の交換について</option>
-                    <option value="商品トラブル" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>>商品トラブル</option>
-                    <option value="ショップへのお問い合わせ" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>>ショップへのお問い合わせ</option>
-                    <option value="その他" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>>その他</option>
+                    <option value="商品のお届けについて" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>商品のお届けについて</option>
+                    <option value="商品の交換について" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>商品の交換について</option>
+                    <option value="商品トラブル" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>商品トラブル</option>
+                    <option value="ショップへのお問い合わせ" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>ショップへのお問い合わせ</option>
+                    <option value="その他" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>その他</option>
                                 </select>
                 <div class="form__error">
                 @error('content')

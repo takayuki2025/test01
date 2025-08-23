@@ -32,9 +32,12 @@ class ContactController extends Controller
         $categories = Category::all();
         // $users = Contact::all();
 
+
 // return view('admin', ['contacts' => $contacts]);
+
        return view('admin', compact('contacts', 'categories', ));
     }
+
 
 
     public function confirm(ContactRequest $request)
@@ -42,32 +45,52 @@ class ContactController extends Controller
 
     $contact = $request->only(['first_name', 'last_name', 'gender',  'email', 'tel01', 'tel02', 'tel03', 'address', 'building', 'content', 'detail']);
 
-//     $content = $request->input('content');
-//     // dd($content);
-//     $request->session()->put('content', $content);
-//    dd($request->session()->get('content'));
+
+
+                $genderValue = $request->input('gender');
+                $genderText = '';
+
+                if ($genderValue == 1) {
+                    $genderText = '　男性';
+                } elseif ($genderValue == 2) {
+                    $genderText = '　女性';
+                } elseif ($genderValue == 3) {
+                    $genderText = '　その他';
+                }
+                $request->session()->put('gender_text', $genderText);
+
     return view('confirm', compact('contact', ));
 }
+
 
     public function confirm2(ContactRequest $request)
 {
 
     $contact = $request->only(['first_name', 'last_name', 'gender',  'email', 'tel01', 'tel02', 'tel03', 'address', 'building', 'content', 'detail']);
 
-    // $content = $request->input('content');
-    // $request->session()->put('content', $content);
-    // dd($request->session()->get('content'));
+
     return view('back-to-form', compact('contact', ));
 }
+
 
     public function store(Request $request)
     
     {
 
         $contact = $request->only(['first_name', 'last_name', 'gender',  'email', 'tel', 'address', 'building', 'content', 'detail']);
-        $contact['category_id'] = 1;
-        $contact['user_id'] = 1;
-        
+
+            if($contact['content']=="商品のお届けについて"){
+            $contact['category_id'] = 1;
+            }elseif($contact['content']=="商品の交換について"){
+            $contact['category_id'] = 2;
+            }elseif($contact['content']=="商品トラブル"){
+            $contact['category_id'] = 3;
+            }elseif($contact['content']=="ショップへのお問い合わせ"){
+            $contact['category_id'] = 4;
+            }elseif($contact['content']=="その他"){
+            $contact['category_id'] = 5;
+            }
+
         Contact::create($contact);
         return view('thanks');
     }
@@ -86,12 +109,15 @@ class ContactController extends Controller
 
 
 
+
     public function modal()
     {
         $contacts = Contact::with('category')->paginate(7);
         $categories = Category::all();
         return view('test-modal', compact('contacts', 'categories', ));
     }
+
+
 
 
 
@@ -102,9 +128,17 @@ public function postCsv()
         ['id' => 1, 'name' => 'hoge'],
         ['id' => 2, 'name' => 'hogehoge']
     ];
-    $columns = ['ID', '名前'];
+
+
+
+
+    $columns = ['名前', '性別','メールアドレス',"お問い合わせ種類",];
+
+
+
+
     $fileName = 'hoge.csv';
-    
+
     // 2. CSVファイルを安全なストレージパスに作成
     $filePath = storage_path('app/' . $fileName);
     $file = fopen($filePath, 'w');

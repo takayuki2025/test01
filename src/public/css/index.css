@@ -40,21 +40,6 @@ table {
 }
 
 
-
-.form__input--textarea textarea {
-    padding: 10px;
-    height: 130px;
-    width: 450px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    background-color:aliceblue;
-    appearance: none;
-    border: 1px solid black;
-}
-
-
-
-
 .form__button {
     text-align: center;
     margin-top: 30px;
@@ -90,6 +75,24 @@ table {
     font-size: 75%;
 }
 
+.form__error-tel2 {
+    position: relative;
+    left: 15px;
+    height: 20px;
+    color: #ff0000;
+    text-align: left;
+    font-size: 75%;
+}
+
+.form__error-tel3 {
+    position: relative;
+    left: 35px;
+    height: 20px;
+    color: #ff0000;
+    text-align: left;
+    font-size: 75%;
+}
+
 .form__error2 {
     position: relative;
     left: 70px;
@@ -98,8 +101,10 @@ table {
     text-align: left;
 }
 
+
+
+
 .form__input--text2 {
-  
     width: 300px;
 }
 
@@ -107,7 +112,7 @@ table {
     position: relative;
     right: 40px;
     background-color: aliceblue;
-    width: 215px;
+    width: 190px;
 } 
 
 .form__text5 {
@@ -115,19 +120,13 @@ table {
     left: 40px;
     background-color: aliceblue;
     height: 16px;
-    width: 235px;
+    width: 190px;
 }
-
-
-
-
-
-
 
 
 input[type="radio"] {
     background-color: aliceblue;
-    width: 80px;
+    width: 60px;
 }
 
 input[type="email"] {
@@ -135,6 +134,28 @@ input[type="email"] {
     width: 460px;
 }
 
+
+.form__tel1 {
+    background-color: aliceblue;
+    margin: 0px;
+    width: 90px;
+}
+
+.form__tel2 {
+    background-color: aliceblue;
+    position: relative;
+        top: 1px;
+    margin: 0px 20px;
+    width: 90px;
+}
+
+.form__tel3 {
+    background-color: aliceblue;
+    position: relative;
+    bottom: 1px;
+    left: 30px;
+    width: 90px;
+}
 
 .form__text2 {
     background-color: aliceblue;
@@ -149,28 +170,18 @@ input[type="email"] {
     border: 1px solid black;
 }
 
-.form__tel1 {
+.form__input--textarea textarea {
+    padding: 10px;
+    height: 130px;
+    width: 450px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
     background-color: aliceblue;
-    margin: 0px;
-    width: 100px;
+    appearance: none;
+    border: 1px solid black;
 }
 
-.form__tel2 {
-    background-color: aliceblue;
-    margin: 0px 20px;
-    width: 90px;
-}
 
-.form__tel3 {
-    background-color: aliceblue;
-    margin: 0px;
-    width: 90px;
-}
-
-th {
-    table-layout: fixed;
-    width: 400px;
-}
 
 #my-table {
     table-layout: fixed;
@@ -186,3 +197,6 @@ th {
     color: #ff0000;
 }
 
+.label {
+    display: flex;
+}

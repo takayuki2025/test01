@@ -12,6 +12,7 @@ class Contact extends Model
 
 
     use HasFactory;
+    
     protected $fillable = [
         'category_id',
         // 'user_id',

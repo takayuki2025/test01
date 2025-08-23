@@ -37,8 +37,9 @@
 
               <tr class="confirm-table__row">
                 <th class="confirm-table__header">性別</th>
-                <td class="confirm-table__text">
-                  <input type="text" name="gender" value="{{ $contact['gender'] }}" readonly />
+                <td class="confirm-table__gender">
+                  <p>{{ session('gender_text') }}</p>
+                  <input type="hidden" name="gender" value="{{ $contact['gender'] }}">
                 </td>
               </tr>
 
@@ -74,6 +75,7 @@
                 <th class="confirm-table__header">お問い合わせ種類</th>
                 <td class="confirm-table__text">
                   <input type="text" name="content" value="{{ $contact['content'] }}" readonly />
+                  
                 </td>
               </tr>
 
@@ -97,14 +99,14 @@
 
       <input type="hidden" name="first_name" value="{{ $contact['first_name'] }}">
       <input type="hidden" name="last_name" value="{{ $contact['last_name'] }}">
-      <input type="hidden" name="gender" value=4 >
+      <input type="hidden" name="gender" value="{{ $contact['gender'] }}">
       <input type="hidden" name="email" value="{{ $contact['email'] }}">
       <input type="hidden" name="tel01" value="{{ $contact['tel01'] }}">
       <input type="hidden" name="tel02" value="{{ $contact['tel02'] }}">
       <input type="hidden" name="tel03" value="{{ $contact['tel03'] }}">
       <input type="hidden" name="address" value="{{ $contact['address'] }}">
       <input type="hidden" name="building" value="{{ $contact['building'] }}">
-      <input type="hidden" name="content" value="テスト">
+      <input type="hidden" name="content" value="{{ $contact['content'] }}">
       <input type="hidden" name="detail" value="{{ $contact['detail'] }}">
         <button type="submit" class="reverse">修正</button>
     </form>

@@ -38,6 +38,12 @@
     border-bottom: 1px solid #ddd;
 }
 
+.confirm-table__gender {
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+    color: goldenrod
+}
+
 .confirm-table__text input {
     width: 100%;
     color: goldenrod;
