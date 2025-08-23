@@ -82,7 +82,10 @@
       </tr>
         @foreach ($contacts as $author)
         <td>{{ $author->first_name . ' ' . $author->last_name }}</td>
-        <td>{{$author->gender}}</td>
+
+        <td>{{$author->gender_name}}</td>
+            <!-- {{$author->gender}} -->
+
         <td>{{$author->email}}</td>
         <td>
           {{ $author->category->content }}</td>

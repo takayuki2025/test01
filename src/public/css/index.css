@@ -105,7 +105,7 @@ table {
 
 
 .form__input--text2 {
-    width: 300px;
+    width: 380px;
 }
 
 .form__text1 {
@@ -113,7 +113,7 @@ table {
     right: 40px;
     background-color: aliceblue;
     width: 190px;
-} 
+}
 
 .form__text5 {
     position: relative;
@@ -153,7 +153,7 @@ input[type="email"] {
     background-color: aliceblue;
     position: relative;
     bottom: 1px;
-    left: 30px;
+    right: 40px;
     width: 90px;
 }
 

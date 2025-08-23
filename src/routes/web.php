@@ -21,19 +21,11 @@ use App\Http\Controllers\AuthController;
 //     return view('welcome');
 // });
 
-
-
-
-
 Route::middleware('auth')->group(function () {
     Route::get('admin', [AuthController::class, 'index']);
 });
 
-Route::get('/admin', [AuthController::class, 'index']);
-
-
-
-
+// Route::get('/admin', [AuthController::class, 'index']);
 
 
 
@@ -49,8 +41,8 @@ Route::get('/', [ContactController::class, 'index']);
 
 
 
-Route::get('/admin', [ContactController::class, 'admin']);
-Route::post('/admin', [ContactController::class, 'admin']);
+// Route::get('/admin', [ContactController::class, 'admin']);
+// Route::post('/admin', [ContactController::class, 'admin']);
 Route::get('/admin/search', [ContactController::class, 'search']);
 
 
@@ -70,14 +62,12 @@ Route::match(['get', 'post'], '/back-to-form', [ContactController::class, 'confi
 
 Route::post('/thanks', [ContactController::class, 'store']);
 
+
+
 Route::post('/test-modal', [ContactController::class, 'modal']);
 
 
-
 Route::get('/export', [ExportController::class, 'export']);
-
-
-
 
 
 Route::post('/postcsv', [ContactController::class, 'postCsv']);

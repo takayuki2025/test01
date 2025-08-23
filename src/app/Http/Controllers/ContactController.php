@@ -17,26 +17,40 @@ use Illuminate\Support\Facades\Response;
 class ContactController extends Controller
 {
 
+
+
     public function index()
     {
         return view('index');
     }
 
 
-        public function admin(Request $request)
-    {
-        // $contacts = Contact::all();
-        // $contacts = Contact::Paginate(7);
-        // $contacts = Contact::with('category')->get();
-        $contacts = Contact::with('category')->paginate(7);
-        $categories = Category::all();
-        // $users = Contact::all();
+
+//         public function admin(Request $request)
+//     {
+
+//         $contacts = Contact::with('category')->paginate(7);
+//         $categories = Category::all();
 
 
-// return view('admin', ['contacts' => $contacts]);
 
-       return view('admin', compact('contacts', 'categories', ));
-    }
+//         if(gender == 1){
+//             $gender_name="男性";
+//         }elseif(gender == 2){
+//             $gender_name="女性";
+//         }elseif(gender == 3){
+//             $gender_name="その他";
+//         }
+
+//         $gender_name = $gender;
+
+
+// dd($contacts);
+
+
+//        return view('admin', compact('contacts', 'categories', ));
+//     }
+
 
 
 
