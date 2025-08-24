@@ -8,7 +8,6 @@
   <title>Admin Page</title>
   <link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
  @livewireStyles
 </head>
 
@@ -17,7 +16,6 @@
   <header class="header">
     <div class="header__top">
       <h2>FashionablyLate</h2>
-
 
       <form class="form" action="/logout" method="post">
       @csrf
@@ -51,27 +49,34 @@
               </select>
           </div>
 
-            <label for="birthdate"></label>
-              <input type="date" id="birthdate" name="birthdate">
+
+    <div class="datesearch1">
+      <label for="date_from"></label>
+      <input class="dateform" type="date" name="dateFrom">
+    </div>
+
 
               <button class="button-submit" type="submit">
                 検索
               </button>
     </form>
 
+
       <div class="reset_form_button">
         <a href="/admin" class="button-submit2">リセット</a>
       </div>
-    </div>
-  </form>
+      </div>
+
 
       <div class="csv-area">
-        <form action="/postcsv" method="post" class="csv-button">
+        <form action="/exportContacts" method="post" class="csv-button">
         @csrf
           <button type="csv-submit" class="csv-submit">エクスポート</button>
         </form>
+
           {{ $contacts->links() }}
       </div>
+
 
     <table>
       <tr>
@@ -81,24 +86,29 @@
         <th>お問い合わせ種類</th>
         <th></th>
       </tr>
-        @foreach ($contacts as $author)
-        <td>{{ $author->first_name . ' ' . $author->last_name }}</td>
 
-        <td>{{$author->gender}}</td>
-            
-            <!-- {{$author->gender_name}} -->
+        @foreach ($contacts as $author)
+
+        <td>
+          {{ $author->first_name . ' ' . $author->last_name }}
+        </td>
+
+        <td>
+          @if ($author->gender == 1)男性
+          @elseif ($author->gender == 2)女性
+          @elseその他@endif
+        </td>
 
         <td>{{$author->email}}</td>
+
         <td>
-          {{ $author->category->content }}</td>
+          {{ $author->category->content }}
+        </td>
 
         <td>
           <div class="modal-button">
 
             <livewire:counter />
-
-        </td>
-
           </div>
         </td>
 

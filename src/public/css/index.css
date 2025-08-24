@@ -15,6 +15,7 @@ body {
 .contact-form__heading {
     color: goldenrod;
     text-align: center;
+    font-size: 22px;
 }
 
 table {
@@ -62,6 +63,18 @@ table {
 
 
 .form__error {
+    position: relative;
+    top: 2px;
+    font-size: 93%;
+    height: 20px;
+    color: #ff0000;
+    text-align: left;
+}
+
+.form__error2 {
+    font-size: 93%;
+    position: relative;
+    left: 100px;
     height: 20px;
     color: #ff0000;
     text-align: left;
@@ -77,6 +90,7 @@ table {
 .form__error-tel2 {
     position: relative;
     left: 15px;
+    top: 2px;
     height: 20px;
     color: #ff0000;
     text-align: left;
@@ -92,14 +106,6 @@ table {
     font-size: 75%;
 }
 
-.form__error2 {
-    position: relative;
-    left: 100px;
-    height: 20px;
-    color: #ff0000;
-    text-align: left;
-}
-
 
 
 
@@ -109,7 +115,7 @@ table {
 
 .form__text1 {
     position: relative;
-    right: 40px;
+    right: 38px;
     background-color: aliceblue;
     width: 190px;
 }

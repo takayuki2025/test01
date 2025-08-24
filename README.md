@@ -34,15 +34,14 @@ laravel環境構築
  （リレーションの繋ぎ目の書き方がわかりませんでした。）
  - ビューのレイアウトがあまり良くないのですがすみません。
  共通部分のレイアウト化も多用できるようにして徐々に上手く作れるようにと思います。<br>
- - データベースからそのままのサーチ機能のはできたのですが、データベースへの保存の仕方が違う性別とカレンダの検索が実装できませんでした。<br>
- - モーダルウィンドウ表示とCSV形式のエクスポートも途中までしかできませんでした。<br>
- - Contact,Confirm,thanks Pageの方大幅に修正しました。<br>
+ - モーダルウィンドウ表示とCSV形式のエクスポート（全体のエクスポートはできました。）も途中までしかできませんでした。<br>
+ - Contact,Confirm,thanks Page,<br>Admin Pageの検索機能等大幅に修正しました。<br>
 
 
 
 
 - 修正しました。　　　　ER図の掲載の仕方は調べましたら貼り付けるようなのでここに貼り付けておきます。
-<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/1df46e23-f084-4c84-b0e6-6f98627b19f0" />
+![Image](https://github.com/user-attachments/assets/abacfbdd-3b45-4c04-b5b9-594b445c6a26)
 
 
 # 使用技術<br>

@@ -75,7 +75,7 @@
                 <th class="confirm-table__header">お問い合わせ種類</th>
                 <td class="confirm-table__text">
                   <input type="text" name="content" value="{{ $contact['content'] }}" readonly />
-                  
+
                 </td>
               </tr>
 

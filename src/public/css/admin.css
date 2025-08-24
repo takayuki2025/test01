@@ -148,3 +148,10 @@ input::placeholder {
     color :goldenrod;
     font-size: 13px;
 }
+
+.dateform {
+    color: goldenrod;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #EEEEEE;
+}

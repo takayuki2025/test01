@@ -7,11 +7,13 @@ use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
 use App\Models\Category;
 
-
 use Illuminate\Pagination\Paginator;
 
-
 use Illuminate\Support\Facades\Response;
+
+
+use Symfony\Component\HttpFoundation\StreamedResponse;
+
 
 
 class ContactController extends Controller
@@ -26,30 +28,28 @@ class ContactController extends Controller
 
 
 
-//         public function admin(Request $request)
-//     {
+    public function admin(Request $request)
+{
+        $contact = $request->only(['first_name', 'last_name', 'gender',  'email', 'tel01', 'tel02', 'tel03', 'address', 'building', 'content', 'detail']);
 
-//         $contacts = Contact::with('category')->paginate(7);
-//         $categories = Category::all();
-
-
-
-//         if(gender == 1){
-//             $gender_name="男性";
-//         }elseif(gender == 2){
-//             $gender_name="女性";
-//         }elseif(gender == 3){
-//             $gender_name="その他";
-//         }
-
-//         $gender_name = $gender;
+        return view('confirm', compact('contact', ));
+}
 
 
-// dd($contacts);
+    public function search(Request $request)
+{
+
+        $contacts = Contact::with('category')->CategorySearch($request->category_id)
+                                            ->KeywordSearch($request->keyword , $request->keyword_gender ,$request->dateFrom)->paginate(7);
+
+        $contacts->appends($request->all());
+
+        $categories = Category::all();
 
 
-//        return view('admin', compact('contacts', 'categories', ));
-//     }
+
+return view('admin', compact('contacts', 'categories'));
+}
 
 
 
@@ -58,7 +58,6 @@ class ContactController extends Controller
 {
 
     $contact = $request->only(['first_name', 'last_name', 'gender',  'email', 'tel01', 'tel02', 'tel03', 'address', 'building', 'content', 'detail']);
-
 
 
                 $genderValue = $request->input('gender');
@@ -88,7 +87,7 @@ class ContactController extends Controller
 
 
     public function store(Request $request)
-    
+
     {
 
         $contact = $request->only(['first_name', 'last_name', 'gender',  'email', 'tel', 'address', 'building', 'content', 'detail']);
@@ -112,16 +111,6 @@ class ContactController extends Controller
 
 
 
-    public function search(Request $request)
-{
-
-  $contacts = Contact::with('category')->CategorySearch($request->category_id)->KeywordSearch($request->keyword , $request->keyword_gender)->paginate(7);
-  $categories = Category::all();
-
-  return view('admin', compact('contacts', 'categories'));
-}
-
-
 
 
     public function modal()
@@ -135,48 +124,63 @@ class ContactController extends Controller
 
 
 
-public function postCsv()
-{
-    // 1. データとファイル情報を定義
-    $data = [
-        ['id' => 1, 'name' => 'hoge'],
-        ['id' => 2, 'name' => 'hogehoge']
-    ];
+public function exportContacts(): StreamedResponse
+    {
+        // レスポンスヘッダーの設定（ダウンロードを強制する）
+        $headers = [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="contacts.csv"',
+        ];
+
+        // ストリーミング処理を定義するコールバック関数
+        $callback = function() {
+            // ファイルポインタを開く
+            $file = fopen('php://output', 'w');
+
+            // ヘッダー行をCSVに書き込む
+            fputcsv($file, ['人数','お問い合わせ種類', '性', '名','性別','メールアドレス','電話番号','住所','お問い合わせ内容']);
 
 
+            $contacts = Contact::with('category')->get();
+
+        // 各連絡先をループで処理し、CSVに書き込む
+        foreach ($contacts as $contact) {
+
+                // ここが重要: Eloquentモデルを配列に変換する
+                // $row = $contact->toArray();
+
+                    $gender_text = '';
+                    if ($contact->gender == 1) {
+                        $gender_text = '男性';
+                    }elseif($contact->gender == 2) {
+                        $gender_text = '女性';
+                    }else{
+                        $gender_text = 'その他';
+                    }
 
 
-    $columns = ['名前', '性別','メールアドレス',"お問い合わせ種類",];
+                // 特定の列だけを書き込みたい場合
+                $row = [
+                    $contact->id,
+                    $contact->category->content,
+                    $contact->first_name,
+                    $contact->last_name,
+                    $gender_text ,
+                    $contact->email,
+                    $contact->tel,
+                    $contact->address,
+                    $contact->detail
+                ];
 
+                // CSVファイルに1行を書き込む
+                fputcsv($file, $row);
+            }
 
+            // ファイルポインタを閉じる
+            fclose($file);
+        };
 
-
-    $fileName = 'hoge.csv';
-
-    // 2. CSVファイルを安全なストレージパスに作成
-    $filePath = storage_path('app/' . $fileName);
-    $file = fopen($filePath, 'w');
-
-    // 3. ファイルにデータを書き込む
-    if ($file) {
-        // カラムの書き込み（文字コード変換も）
-        mb_convert_variables('SJIS', 'UTF-8', $columns);
-        fputcsv($file, $columns);
-
-        // データの書き込み
-        foreach ($data as $row) {
-            mb_convert_variables('SJIS', 'UTF-8', $row);
-            fputcsv($file, $row);
-        }
+        // ストリーミングレスポンスを返す
+        return new StreamedResponse($callback, 200, $headers);
     }
-    fclose($file);
-
-    // 4. ダウンロードレスポンスを返す
-    // ダウンロード後、ファイルを自動的に削除する
-    return Response::download($filePath, $fileName)->deleteFileAfterSend(true);
-}
-
-
-
-
 }
