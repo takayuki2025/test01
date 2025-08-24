@@ -56,32 +56,3 @@ Route::post('/test-modal', [ContactController::class, 'modal']);
 
 Route::post('/exportContacts', [ContactController::class, 'exportContacts']);
 
-
-
-
-// Route::get('/export', [ExportController::class, 'export']);
-
-// Route::get('/export-csv', function () {
-//     $filename = 'users.csv';
-//     $headers = [
-//         'Content-Type' => 'text/csv',
-//         'Content-Disposition' => "attachment; filename=\"$filename\"",
-//     ];
-
-//     $callback = function () {
-//         $handle = fopen('php://output', 'w');
-//         // ヘッダー行
-//         fputcsv($handle, ['ID', '名前', 'メール']);
-
-//         // データ行（chunkでメモリ効率化）
-//         User::chunk(100, function ($users) use ($handle) {
-//             foreach ($users as $user) {
-//                 fputcsv($handle, [$user->id, $user->name, $user->email]);
-//             }
-//         });
-
-//         fclose($handle);
-//     };
-
-//     return response()->stream($callback, 200, $headers);
-// });

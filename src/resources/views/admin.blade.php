@@ -115,10 +115,17 @@
       </tr>
         @endforeach
 
+
+
+        
     </table>
 
   </main>
 
+
+
+
+  
 @livewireScripts
 </body>
 

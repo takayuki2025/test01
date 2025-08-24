@@ -27,13 +27,16 @@ class ContactController extends Controller
     }
 
 
+    
 
-    public function admin(Request $request)
-{
-        $contact = $request->only(['first_name', 'last_name', 'gender',  'email', 'tel01', 'tel02', 'tel03', 'address', 'building', 'content', 'detail']);
+//     public function admin(Request $request)
+// {
+//         $contact = $request->only(['first_name', 'last_name', 'gender',  'email', 'tel01', 'tel02', 'tel03', 'address', 'building', 'content', 'detail']);
 
-        return view('confirm', compact('contact', ));
-}
+//         return view('confirm', compact('contact'));
+// }
+
+
 
 
     public function search(Request $request)
@@ -79,10 +82,10 @@ return view('admin', compact('contacts', 'categories'));
     public function confirm2(ContactRequest $request)
 {
 
-    $contact = $request->only(['first_name', 'last_name', 'gender',  'email', 'tel01', 'tel02', 'tel03', 'address', 'building', 'content', 'detail']);
+    $contacts = $request->only(['first_name', 'last_name', 'gender',  'email', 'tel01', 'tel02', 'tel03', 'address', 'building', 'content', 'detail']);
 
 
-    return view('back-to-form', compact('contact', ));
+    return view('back-to-form', compact('contacts'));
 }
 
 
