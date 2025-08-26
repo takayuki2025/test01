@@ -49,6 +49,8 @@ Route::match(['get', 'post'], '/back-to-form', [ContactController::class, 'confi
 Route::post('/thanks', [ContactController::class, 'store']);
 
 
+Route::delete('/contacts/delete', [ContactController::class, 'destroy']);
+
 
 Route::post('/test-modal', [ContactController::class, 'modal']);
 

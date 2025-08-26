@@ -87,29 +87,67 @@
         <th></th>
       </tr>
 
-        @foreach ($contacts as $author)
+        @foreach ($contacts as $contact)
 
         <td>
-          {{ $author->first_name . ' ' . $author->last_name }}
+          {{ $contact->first_name . ' ' . $contact->last_name }}
         </td>
 
         <td>
-          @if ($author->gender == 1)男性
-          @elseif ($author->gender == 2)女性
+          @if ($contact->gender == 1)男性
+          @elseif ($contact->gender == 2)女性
           @elseその他@endif
         </td>
 
-        <td>{{$author->email}}</td>
+        <td>{{$contact->email}}</td>
 
         <td>
-          {{ $author->category->content }}
+          {{ $contact->category->content }}
         </td>
 
         <td>
-          <div class="modal-button">
 
-            <livewire:counter />
+
+
+
+
+    <a href="#modal-{{ $contact->id }}" class="modal-open-button">詳細</a>
+    <div class="modal" id="modal-{{ $contact->id }}">
+      <div class="modal-wrapper">
+        <a href="#" class="close">&times;</a>
+        <div class="modal-content">
+          <h3>お問い合せ詳細</h3><br>
+          <p>お名前：{{ $contact->first_name }} {{ $contact->last_name }}<br><br>
+          <p>性別： @if ($contact->gender == 1)男性
+              @elseif ($contact->gender == 2)女性
+              @elseその他@endif<br><br>
+          <p>メールアドレス：{{ $contact->email }}<br><br>
+          <p>電話番号：{{ $contact->tel }}<br><br>
+          <p>住所：{{ $contact->address }}<br><br>
+          <p>建物：{{ $contact->building }}<br><br>
+          <p>お問い合わせ種類：{{ $contact->category->content }}<br><br>
+          <p>お問い合わせ内容：{{ $contact->detail }}<br><br>
+
+          
+            <form class="delete-form" action="/contacts/delete" method="POST">
+              @method('DELETE')
+              @csrf
+            <div class="delete_button">
+              <input type="hidden" name="id" value="{{ $contact['id'] }}">
+              <button class="delete-form_button-submit" type="submit">削除</button>
           </div>
+            </form>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+          {{--<div class="modal-button">
+            <livewire:counter />
+          </div>--}}
         </td>
 
       </tr>
@@ -117,7 +155,7 @@
 
 
 
-        
+
     </table>
 
   </main>
@@ -125,7 +163,7 @@
 
 
 
-  
+
 @livewireScripts
 </body>
 

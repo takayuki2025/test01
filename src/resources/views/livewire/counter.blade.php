@@ -10,13 +10,32 @@
                 <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                     <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         <h3 class="text-lg leading-6 font-medium text-gray-900">
-                            モーダルタイトル
+                            お問い合わせ詳細
                         </h3>
+
                         <div class="mt-2">
                             <p class="text-sm text-gray-500">
 
 
         <td>
+
+
+<p>お名前：{{ $contact->first_name }} {{ $contact->last_name }}</p>
+<?php
+if ($contact->gender == 1) {
+                    $genderT = '　男性';
+                } elseif ($genderT == 2) {
+                    $gender = '　女性';
+                } elseif ($genderT == 3) {
+                    $gender = '　その他';
+                }
+?>
+<p>性別：{{ $genderT }}</p>
+<p>メールアドレス：{{ $contact->email }}</p>
+<p>お問い合わせ時間：{{ $contact->created_at }}</p>
+<p>お問い合わせ種類：{{ $contact->category->content }}</p>
+<p>お問い合わせ内容：{{ $contact->detail }}</p>
+
 
         </td>
 
