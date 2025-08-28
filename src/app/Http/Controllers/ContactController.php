@@ -41,7 +41,7 @@ class ContactController extends Controller
                 }
                 $request->session()->put('gender_text', $genderText);
 
-        return view('confirm', compact('contact', ));
+        return view('confirm', compact('contact' ));
 }
 
 

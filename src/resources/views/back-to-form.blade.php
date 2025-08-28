@@ -37,7 +37,7 @@
             <div class="form__group-content">
               <td>
                 <div class="form__input--text2">
-                  <input type="text" name="first_name" value="{{ $contact['first_name'] }}" class="form__text1"/>
+                  <input type="text" name="first_name" value="{{ $contacts['first_name'] }}" class="form__text1"/>
                     <div class="form__error">
                       @error('first_name')
                       {{ $message }}
@@ -47,7 +47,7 @@
             </td>
             <td>
               <div class="form__input--text2">
-                <input type="text" name="last_name" value="{{ $contact['last_name'] }}" class="form__text5"/>
+                <input type="text" name="last_name" value="{{ $contacts['last_name'] }}" class="form__text5"/>
                     <div class="form__error">
                       @error('last_name')
                       {{ $message }}
@@ -68,9 +68,9 @@
             </div>
               <td colspan="3">
                 <div class="form__input--radio">
-                  <label><input type="radio" name="gender" value=1 @checked($contact['gender'] == 1)>男性</label>
-                  <label><input type="radio" name="gender" value=2 @checked($contact['gender'] == 2)>女性</label>
-                  <label><input type="radio" name="gender" value=3 @checked($contact['gender'] == 3)>その他</label>
+                  <label><input type="radio" name="gender" value=1 @checked($contacts['gender'] == 1)>男性</label>
+                  <label><input type="radio" name="gender" value=2 @checked($contacts['gender'] == 2)>女性</label>
+                  <label><input type="radio" name="gender" value=3 @checked($contacts['gender'] == 3)>その他</label>
                 </div>
                   <div class="form__error">
                     @error('gender')
@@ -88,7 +88,7 @@
             </div>
               <div class="form__group-content">
                 <div class="form__input--text1">
-                  <td colspan="3"><input type="email" name="email" value="{{ $contact['email'] }}" />
+                  <td colspan="3"><input type="email" name="email" value="{{ $contacts['email'] }}" />
                 </div>
                   <div class="form__error">
                     @error('email')
@@ -107,7 +107,7 @@
             </div>
               <div class="form__group-content">
                 <div class="form__input--text3">
-                  <td><input type="tel" name="tel01" value="{{ $contact['tel01'] }}" class="form__tel1"/>
+                  <td><input type="tel" name="tel01" value="{{ $contacts['tel01'] }}" class="form__tel1"/>
 
                       <div class="form__error">
                         @error('tel01')
@@ -120,7 +120,7 @@
 <div class="label">
                     <label>-</label>
 
-                  <input type="tel" name="tel02" value="{{ $contact['tel02'] }}"class="form__tel2"/>
+                  <input type="tel" name="tel02" value="{{ $contacts['tel02'] }}"class="form__tel2"/>
 
                     <label>-</label>
 </div>
@@ -131,7 +131,7 @@
                       </diV>
                   </td>
 
-                  <td><input type="tel" name="tel03" value="{{ $contact['tel03'] }}" class="form__tel3"/>
+                  <td><input type="tel" name="tel03" value="{{ $contacts['tel03'] }}" class="form__tel3"/>
                     <div class="form__error">
                       @error('tel03')
                       {{ $message }}
@@ -149,7 +149,7 @@
               </div>
                 <div class="form__group-content">
                   <div class="form__input--text">
-                    <td colspan="3"><input type="text" name="address" value="{{ $contact['address'] }}" class="form__text2" />
+                    <td colspan="3"><input type="text" name="address" value="{{ $contacts['address'] }}" class="form__text2" />
                   </div>
                     <div class="form__error">
                       @error('address')
@@ -167,7 +167,7 @@
             </div>
               <div class="form__group-content">
                 <div class="form__input--text">
-                  <td colspan="3"><input type="text" name="building" value="{{ $contact['building'] }}" class="form__text2" /></td>
+                  <td colspan="3"><input type="text" name="building" value="{{ $contacts['building'] }}" class="form__text2" /></td>
                 </div>
               </div>
           </div>
@@ -182,11 +182,11 @@
               <div class="form__group-title">
                 <td colspan="3">
                                 <select name="content" class="form__select">
-                    <option value="商品のお届けについて" @selected($contact['content'] == '商品のお届けについて')>商品のお届けについて</option>
-                    <option value="商品の交換について" @selected($contact['content'] == '商品の交換について')>商品の交換について</option>
-                    <option value="商品トラブル" @selected($contact['content'] == '商品トラブル')>商品トラブル</option>
-                    <option value="ショップへのお問い合わせ" @selected($contact['content'] == 'ショップへのお問い合わせ')>ショップへのお問い合わせ</option>
-                    <option value="その他" @selected($contact['content'] == 'その他')>その他</option>
+                    <option value="商品のお届けについて" @selected($contacts['content'] == '商品のお届けについて')>商品のお届けについて</option>
+                    <option value="商品の交換について" @selected($contacts['content'] == '商品の交換について')>商品の交換について</option>
+                    <option value="商品トラブル" @selected($contacts['content'] == '商品トラブル')>商品トラブル</option>
+                    <option value="ショップへのお問い合わせ" @selected($contacts['content'] == 'ショップへのお問い合わせ')>ショップへのお問い合わせ</option>
+                    <option value="その他" @selected($contacts['content'] == 'その他')>その他</option>
                                 </select>
                                   <div class="form__error">
                                     @error('content')
@@ -205,7 +205,7 @@
             </div>
               <td colspan="3"><div class="form__group-content">
                 <div class="form__input--textarea">
-                  <textarea name="detail"> {{ $contact['detail'] }} </textarea>
+                  <textarea name="detail"> {{ $contacts['detail'] }} </textarea>
                 </div>
                   <div class="form__error">
                     @error('detail')
