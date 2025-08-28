@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Contact extends Model
 {
-
-
     use HasFactory;
 
     protected $fillable = [
@@ -29,7 +27,7 @@ class Contact extends Model
 
     public function category()
 {
-return $this->belongsTo(Category::class);
+      return $this->belongsTo(Category::class);
 }
 
     public static $rules = array(
@@ -46,16 +44,16 @@ return $this->belongsTo(Category::class);
 
   public function getDetail()
   {
-    $txt = 'ID:' . $this->id . ' ' . $this->first_name .   $this->last_name .   $this->gender . $this->email . $this->tel . $this->address . $this->building . $this->detail;
-    return $txt;
+      $txt = 'ID:' . $this->id . ' ' . $this->first_name .   $this->last_name .   $this->gender . $this->email . $this->tel . $this->address . $this->building . $this->detail;
+      return $txt;
   }
   public function book()
   {
-    return $this->hasOne('App\Models\Book');
+      return $this->hasOne('App\Models\Book');
   }
   public function books()
   {
-    return $this->hasMany('App\Models\Book');
+      return $this->hasMany('App\Models\Book');
   }
 
 
@@ -63,17 +61,17 @@ return $this->belongsTo(Category::class);
 
 public function scopeKeywordSearch(Builder $query, $keyword,$keyword_gender ,$dateFrom)
 {
-    if ($keyword) {
+      if ($keyword) {
         $query->where('first_name', 'like', "%{$keyword}%")
               ->orWhere('last_name', 'like', "%{$keyword}%")
               ->orWhere('email', 'like', "%{$keyword}%");
     }
 
-    if ($keyword_gender) {
+      if ($keyword_gender) {
         $query->orWhere('gender', '=', $keyword_gender);
     }
 
-    if ($dateFrom) {
+      if ($dateFrom) {
         $query->whereDate('created_at', $dateFrom);
     }
 

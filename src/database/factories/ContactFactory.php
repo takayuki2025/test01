@@ -27,7 +27,7 @@ class ContactFactory extends Factory
         // $faker = FakerFactory::create('ja_JP');
         $faker = FakerFactory::create(config('app.faker_locale'));
 
-        $categoryId = $faker->numberBetween(1, 5);
+        // $categoryId = $faker->numberBetween(1, 5);
         $categoryId = $this->faker->numberBetween(1, 5);
         // $userId = \App\Models\User::factory()->create()->id;
 

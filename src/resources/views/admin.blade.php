@@ -29,7 +29,7 @@
       <h3 class="h3heading">Admin</h3>
     </div>
       <div class="search_form">
-        <form class="form" action="/admin/search" method="get">
+        <form class="form" action="{{ route('contacts.search') }}" method="get">
         @csrf
           <div class="search-form__item">
             <input class="search-form__item-input" type="text" placeholder="名前やメールアドレスを入力してください" name="keyword" value="{{ old('keyword') }}">
@@ -69,7 +69,7 @@
 
 
       <div class="csv-area">
-        <form action="/exportContacts" method="post" class="csv-button">
+        <form action="{{ route('contacts.export', request()->query()) }}" method="POST" class="csv-button">
         @csrf
           <button type="csv-submit" class="csv-submit">エクスポート</button>
         </form>

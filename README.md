@@ -21,11 +21,16 @@ laravel環境構築
 <br>
 　3\. .env.exampleファイルから.envを作成し、環境変数を変更
 <br>
-　4\. php artisan key:generate
+　4\. docker-compose exec php bash(5,6,7,実行時)
 <br>
-　5\. php artisan migrate:fresh
+　5\. アプリケーションキーの作成<br>
+　　php artisan key:generate
 <br>
-　6\. php artisan db:seed
+　6\. マイグレーションの実行<br>
+　　php artisan migrate
+<br>
+　7\. シーディングの実行<br>
+　　php artisan db:seed
 <br>
 
 
@@ -39,14 +44,20 @@ laravel環境構築
 <br>
 
 # 修正履歴<br>
-- 2024/08/23 14:20 修正内容<br>
+- 2025/08/23 14:20 修正内容<br>
   ER図の修正<br><br>
-- 2024/08/24 10:00 修正内容<br>
+- 2025/08/24 10:00 修正内容<br>
   検索機能等の実装完了<br>
-  『エクスポート』ボタンで全体の情報取得のみ実装完了（検索を絞り込んだ状態で『エクスポート』は未完了）<br>
+  『エクスポート』ボタンで全体の情報取得のみ実装完了（検索を絞り込んだ状態で『エクスポート』は未完了）<br><br>
+- 2025/08/26 22:30 修正内容<br>
+  モーダルウィンドウ実装完了<br><br>
+- 2025/08/28 22:00 修正内容<br>
+  全体、検索を絞り込んだ状態で『エクスポート』の実装完了<br>
+  ER図の修正<br>
+  READMEの修正<br><br>
 
 # ER図<br>
-![Image](https://github.com/user-attachments/assets/abacfbdd-3b45-4c04-b5b9-594b445c6a26)
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/0b04b27b-0794-4b88-b971-a41fd52a7233" />
 
 # 使用技術<br>
   - PHP 8.1

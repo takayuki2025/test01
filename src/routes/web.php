@@ -26,15 +26,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/', [ContactController::class, 'index']);
 
 
-
-// Route::post('/login', [ContactController::class, 'admin']);
-// Route::post('/register', [ContactController::class, 'admin']);
-
-
-
-Route::get('/admin/search', [ContactController::class, 'search']);
-
-
+// Route::get('/admin/search', [ContactController::class, 'search']);
+Route::get('/contacts/search', [ContactController::class, 'search'])->name('contacts.search');
 
 
 Route::post('/confirm', [ContactController::class, 'confirm']);
@@ -52,9 +45,5 @@ Route::post('/thanks', [ContactController::class, 'store']);
 Route::delete('/contacts/delete', [ContactController::class, 'destroy']);
 
 
-Route::post('/test-modal', [ContactController::class, 'modal']);
-
-
-
-Route::post('/exportContacts', [ContactController::class, 'exportContacts']);
-
+// Route::post('/exportContacts', [ContactController::class, 'exportContacts']);
+Route::post('/contacts/export', [ContactController::class, 'exportContacts'])->name('contacts.export');
