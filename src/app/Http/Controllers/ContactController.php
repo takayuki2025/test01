@@ -151,7 +151,9 @@ public function exportContacts(Request $request): StreamedResponse
                     $contact->email,
                     $contact->tel,
                     $contact->address,
-                    $contact->detail
+                    $contact->detail,
+                    $contact->created_at,
+                    $contact->updated_at
             ];
 
                 // CSVファイルに1行を書き込む
