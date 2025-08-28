@@ -3,7 +3,7 @@
 
 
 namespace Database\Factories;
-
+ini_set('memory_limit', '512M');
 use App\Models\Contact;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Faker\Factory as FakerFactory;

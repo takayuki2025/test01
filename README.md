@@ -50,7 +50,8 @@ laravel環境構築
 - 2025/08/28 22:00 修正内容<br>
   全体、検索を絞り込んだ状態で『エクスポート』の実装完了<br>
   ER図の修正<br>
-  READMEの修正<br><br>
+  READMEの修正<br>
+  ContactFactory.phpファイルのみPHPメモリー制限512Mに設定<br><br>
 
 # ER図<br>
 <img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/0b04b27b-0794-4b88-b971-a41fd52a7233" />
