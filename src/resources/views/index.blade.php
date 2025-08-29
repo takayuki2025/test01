@@ -186,11 +186,11 @@
                 <td colspan="3">
                                 <select name="content" class="form__select">
                     <option value="" selected disabled>選択してください</option>
-                    <option value="商品のお届けについて" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>商品のお届けについて</option>
-                    <option value="商品の交換について" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>商品の交換について</option>
-                    <option value="商品トラブル" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>商品トラブル</option>
-                    <option value="ショップへのお問い合わせ" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>ショップへのお問い合わせ</option>
-                    <option value="その他" @if(isset($data['prefecture']) && $data['prefecture'] == 'tokyo') selected @endif>その他</option>
+                    <option value="商品のお届けについて" @selected(old('content') == "商品のお届けについて")>商品のお届けについて</option>
+                    <option value="商品の交換について" @selected(old('content') == "商品の交換について")>商品の交換について</option>
+                    <option value="商品トラブル" @selected(old('content') == "商品トラブル")>商品トラブル</option>
+                    <option value="ショップへのお問い合わせ" @selected(old('content') == "ショップへのお問い合わせ")>ショップへのお問い合わせ</option>
+                    <option value="その他" @selected(old('content') == "その他")>その他</option>
                                 </select>
                 <div class="form__error">
                 @error('content')

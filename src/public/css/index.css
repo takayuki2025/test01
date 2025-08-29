@@ -64,6 +64,7 @@ table {
 
 .form__error {
     position: relative;
+    left: 70px;
     top: 2px;
     font-size: 93%;
     height: 20px;
@@ -81,6 +82,8 @@ table {
 }
 
 .form__error-tel {
+    position: relative;
+    left: 70px;
     height: 20px;
     color: #ff0000;
     text-align: left;
@@ -114,8 +117,8 @@ table {
 }
 
 .form__text1 {
-    position: relative;
-    right: 38px;
+    /* position: relative;
+    right: 5px; */
     background-color: aliceblue;
     width: 190px;
 }
@@ -143,7 +146,7 @@ input[type="email"] {
 .form__tel1 {
     background-color: aliceblue;
     position: relative;
-    left: 10px;
+    left: 40px;
     margin: 0px;
     width: 90px;
 }
@@ -151,6 +154,7 @@ input[type="email"] {
 .form__tel2 {
     background-color: aliceblue;
     position: relative;
+    left: 10px;
         top: 1px;
     margin: 0px 20px;
     width: 90px;
