@@ -15,24 +15,21 @@ Dockerビルド
 laravel環境構築
 <br>
 <br>
-　1\. git cloneリンク git clone git@github.com:Estra-Coachtech/laravel-docker-template.git
+　1\. docker-compose exec php bash
 <br>
-　2\. docker-compose up -d --build
+　2\. composer install
 <br>
-　3\. .env.exampleファイルから.envを作成し、環境変数を変更
+　3\. env.exampleファイルから.envを作成し、環境変数を変更
 <br>
-　4\. docker-compose exec php bash(5,6,7,実行時)
-<br>
-　5\. アプリケーションキーの作成<br>
+　4\. アプリケーションキーの作成<br>
 　　php artisan key:generate
 <br>
-　6\. マイグレーションの実行<br>
+　5\. マイグレーションの実行<br>
 　　php artisan migrate
 <br>
-　7\. シーディングの実行<br>
+　6\. シーディングの実行<br>
 　　php artisan db:seed
 <br>
-
 
 # 伝えること<br>
  - ビューのレイアウトがあまり良くないのですがすみません。<br>
